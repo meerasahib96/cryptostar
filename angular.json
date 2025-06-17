@@ -50,11 +50,6 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": {
-                "fonts": {
-                  "inline": false
-                }
-              },
               "outputHashing": "all"
             },
             "development": {
