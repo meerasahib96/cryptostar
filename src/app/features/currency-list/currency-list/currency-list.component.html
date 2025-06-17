@@ -1,0 +1,21 @@
+<app-loading-spinner *ngIf="loading$ | async"></app-loading-spinner>
+
+<div class="search-container">
+  <input
+    type="text"
+    placeholder="Search cryptocurrencies..."
+    [(ngModel)]="searchTerm"
+    class="search-input"
+  />
+</div>
+
+<div class="crypto-list" *ngIf="cryptos$ | async as cryptos">
+  <div class="card-grid">
+    <div
+      *ngFor="let crypto of cryptos | cryptosearch : searchTerm"
+      class="card-wrapper"
+    >
+      <app-currency-card [crypto]="crypto"></app-currency-card>
+    </div>
+  </div>
+</div>

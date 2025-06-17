@@ -1,0 +1,70 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e2f;
+  color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+  .nav-right {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #ff4081;
+      }
+
+      &.active-link {
+        border-bottom: 2px solid #ff4081;
+      }
+    }
+  }
+
+  /* ✅ Responsive shrink (not stack) */
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+
+    .nav-right {
+      gap: 1rem;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.4rem 0.8rem;
+
+    .nav-right {
+      gap: 0.8rem;
+    }
+
+    .brand {
+      font-size: 1rem;
+    }
+
+    a {
+      font-size: 0.85rem;
+    }
+  }
+}

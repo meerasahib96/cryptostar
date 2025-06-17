@@ -1,0 +1,7 @@
+<div class="crypto-list" *ngIf="favorites$ | async as favorites">
+  <div class="card-grid">
+    <div *ngFor="let crypto of favorites" class="card-wrapper">
+      <app-currency-card [crypto]="crypto"></app-currency-card>
+    </div>
+  </div>
+</div>

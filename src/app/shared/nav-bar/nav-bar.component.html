@@ -1,0 +1,14 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <span class="brand" routerLink="/">CryptoStar</span>
+  </div>
+  <div class="nav-right">
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a routerLink="/favorites" routerLinkActive="active-link">Favorites</a>
+  </div>
+</nav>

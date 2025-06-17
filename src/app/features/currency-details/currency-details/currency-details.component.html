@@ -1,0 +1,69 @@
+<!-- src/app/features/currency-details/currency-details.component.html -->
+
+<ng-container *ngIf="crypto$ | async as crypto; else loading">
+  <div class="details-container">
+    <!-- Header -->
+    <div class="header">
+      <img [src]="crypto.image.large" [alt]="crypto.name" />
+      <div>
+        <h2>{{ crypto.name }} ({{ crypto.symbol | uppercase }})</h2>
+        <p class="price">
+          ${{ crypto.market_data.current_price["usd"] | number : "1.2-2" }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div>
+        <strong>Market Cap:</strong> ${{
+          crypto.market_data.market_cap["usd"] | number
+        }}
+      </div>
+      <div>
+        <strong>24h Volume:</strong> ${{
+          crypto.market_data.total_volume["usd"] | number
+        }}
+      </div>
+      <div>
+        <strong>24h Change:</strong>
+        <span
+          [ngClass]="{
+            positive: crypto.market_data.price_change_percentage_24h >= 0,
+            negative: crypto.market_data.price_change_percentage_24h < 0
+          }"
+        >
+          {{
+            crypto.market_data.price_change_percentage_24h | number : "1.2-2"
+          }}%
+        </span>
+      </div>
+      <div><strong>Rank:</strong> {{ crypto.market_cap_rank }}</div>
+    </div>
+
+    <!-- Description -->
+    <div
+      class="description"
+      [innerHTML]="crypto.description.en | slice : 0 : 300"
+    ></div>
+
+    <!-- Simple Bar Chart -->
+    <div class="chart-wrapper">
+      <canvas
+        baseChart
+        [data]="chartData"
+        [options]="chartOptions"
+        [type]="chartType"
+      ></canvas>
+    </div>
+    <div class="links">
+      <a [href]="crypto.links.homepage[0]" target="_blank" rel="noopener">
+        Visit Official Website
+      </a>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>
