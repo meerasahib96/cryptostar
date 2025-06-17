@@ -20,7 +20,6 @@ export class CurrencyCardComponent {
   toggleFavorite(event: Event): void {
     event.stopPropagation();
     this.isFavorite = !this.isFavorite;
-    console.log(`${this.crypto.name} is favorite: ${this.isFavorite}`);
     console.log('Toggling favorite for:', this.crypto.id);
     this.store.dispatch(toggleFavorite({ cryptoId: this.crypto.id }));
   }

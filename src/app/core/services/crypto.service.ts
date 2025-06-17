@@ -19,10 +19,10 @@ export class CryptoService {
     return this.http.get<CryptoDetails>(`${this.API}/coins/${id}`);
   }
 
-  /** Fetch price history **/
-  getMarketChart(id: string): Observable<any> {
-    return this.http.get(
-      `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7`
-    );
-  }
+  // /** Fetch price history **/
+  // getMarketChart(id: string): Observable<any> {
+  //   return this.http.get(
+  //     `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7`
+  //   );
+  // }
 }

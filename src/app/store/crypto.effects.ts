@@ -3,7 +3,6 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, switchMap, of, timer } from 'rxjs';
 import { CryptoService } from '../core/services/crypto.service'; // Make sure path is correct
 import * as CryptoActions from './crypto.actions';
-import { Crypto } from 'app/core/models/crypto';
 @Injectable()
 export class CryptoEffects {
   constructor(
@@ -16,9 +15,8 @@ export class CryptoEffects {
       ofType(CryptoActions.loadCryptos),
       mergeMap(() =>
         this.cryptoService.getAllCoins().pipe(
-          // Make sure you are telling TypeScript that you're returning Crypto[]
-          map(
-            (cryptos: any[]) => CryptoActions.loadCryptosSuccess({ cryptos }) // <- cryptos must match type in action
+          map((cryptos: any[]) =>
+            CryptoActions.loadCryptosSuccess({ cryptos })
           ),
           catchError((error) => of(CryptoActions.loadCryptosFailure({ error })))
         )

@@ -1,8 +1,5 @@
-<!-- src/app/features/currency-details/currency-details.component.html -->
-
 <ng-container *ngIf="crypto$ | async as crypto; else loading">
   <div class="details-container">
-    <!-- Header -->
     <div class="header">
       <img [src]="crypto.image.large" [alt]="crypto.name" />
       <div>
@@ -13,7 +10,6 @@
       </div>
     </div>
 
-    <!-- Stats -->
     <div class="stats">
       <div>
         <strong>Market Cap:</strong> ${{
@@ -41,13 +37,11 @@
       <div><strong>Rank:</strong> {{ crypto.market_cap_rank }}</div>
     </div>
 
-    <!-- Description -->
     <div
       class="description"
       [innerHTML]="crypto.description.en | slice : 0 : 300"
     ></div>
 
-    <!-- Simple Bar Chart -->
     <div class="chart-wrapper">
       <canvas
         baseChart

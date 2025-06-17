@@ -18,8 +18,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadCryptos());
-    // this.cryptos$ = this.store.select(selectCryptoData);
-    // this.error$ = this.store.select(selectCryptoError);
   }
   isLandingPage(): boolean {
     return this.router.url === '/';

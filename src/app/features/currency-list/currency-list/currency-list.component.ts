@@ -24,8 +24,4 @@ export class CurrencyListComponent implements OnInit {
     this.loading$ = this.store.select(selectCryptoLoading);
     this.cryptos$.subscribe((data) => console.log('Cryptos:', data));
   }
-
-  // goToDetails(id: string) {
-  //   this.router.navigate(['/details', id]);
-  // }
 }
