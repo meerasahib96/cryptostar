@@ -49,6 +49,15 @@
         color: #444;
       }
     }
+    .positive {
+      color: #2e7d32; // green
+      font-weight: 600;
+    }
+
+    .negative {
+      color: #c62828; // red
+      font-weight: 600;
+    }
   }
 
   .description {
@@ -83,6 +92,7 @@
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
   }
+
   .links {
     text-align: center;
 
